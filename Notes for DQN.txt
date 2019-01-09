@@ -21,3 +21,11 @@ This doesnt work for Q values not discreet -> funtion approximation makes it not
 
 We cant keep changing w with every step -> Donkey example
 Instead, change w in batches, to ensure we dont chase a moving target.
+
+For achieving Fixed Q targets,
+Keep 2 copies of Neural net (Current, next)
+
+Lets say we update the network weights (Learn) after every n actions.
+Keep collecting sample observations for n times, and keep training the network at all steps.
+
+Update the Q values (Policy) only once every n steps.
