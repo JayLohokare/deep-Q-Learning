@@ -1,0 +1,23 @@
+Deep Q Learning things to remember ->
+Use Deep Neural nets for solving reinforment problems
+
+
+- Images of games fed to NN to get output (Action to perform)
+- Series (4) of images instead of single image - Helps learn the temporal data
+
+Experience replay -
+While learning, keep a cache of state-action-reward pairs, and sample randomly from this cache to learn for next iteration.
+This helps break the issue arising due to corelation between Action and next state.
+
+Fixed Q targets - 
+Qnew = Qcurrent + alpha(target - current) 
+where
+target = reward + gamma * QnextStateAction
+
+using similar principal,
+dW = alpha(target-current)*(d(current)/dW)
+Here, we use target = reward + gamma * QnextStateAction, this wont work
+This doesnt work for Q values not discreet -> funtion approximation makes it not work
+
+We cant keep changing w with every step -> Donkey example
+Instead, change w in batches, to ensure we dont chase a moving target.
